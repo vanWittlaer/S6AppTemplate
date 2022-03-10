@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Courtesy: https://gist.github.com/koehnlein/d102c6efe38cec7fbd25f6f888097002
+
+## Usage: dbeaver
+## Description: Open DBeaver and create database connection with the current project
+## Example: "ddev dbeaver"
+
+dbeaver -con "name=ddev-${DDEV_PROJECT}|folder=DDEV|driver=mysql|database=db|user=root|password=root|host=127.0.0.1|port=${DDEV_HOST_DB_PORT}" -nosplash -q -newInstance

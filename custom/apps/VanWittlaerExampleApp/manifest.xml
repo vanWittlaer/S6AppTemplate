@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/Framework/App/Manifest/Schema/manifest-1.0.xsd">
+    <meta>
+        <name>VanWittlaerExampleApp</name>
+        <label>ExampleApp</label>
+        <label lang="de-DE">Beispiel-App</label>
+        <description>Some description</description>
+        <description lang="de-DE">Eine Beschreibung</description>
+        <author>vanWittlaer GmbH</author>
+        <copyright>(c) by vanWittlaer GmbH</copyright>
+        <version>1.0.0</version>
+        <icon>Resources/config/plugin.png</icon>
+        <license>MIT</license>
+    </meta>
+    <setup>
+        <!-- note the particular url ddev-<project>-web when using ddev -->
+        <registrationUrl>https://myapp.ddev.site/registration</registrationUrl>
+        <!-- this is the app servers APP_SECRET as defined in the .env file -->
+        <secret>appSecret</secret>
+    </setup>
+    <permissions>
+        <read>customer_address</read>
+        <update>customer_address</update>
+        <create>notification</create>
+    </permissions>
+    <webhooks>
+        <webhook name="customer-address-written" url="https://myapp.ddev.site/customer/address/written"
+                 event="customer_address.written"/>
+        <webhook name="appLifecycleDeleted" url="https://myapp.ddev.site/applifecycle/deleted" event="app.deleted"/>
+    </webhooks>
+</manifest>
